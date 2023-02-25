@@ -2,7 +2,7 @@ name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
-  check-bats-version:
+  container-build:
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
@@ -16,5 +16,5 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }}
-          platform: "linux/amd64,linux/arm64"
+          platforms: "linux/amd64,linux/arm64"
           push: true
